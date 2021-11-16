@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Marketplace</string>
+    <string name="text1">Correo electronico o Usuario</string>
+    <string name="Etext1">Ingrese su Correo/Usuario</string>
+    <string name="text2">Contraseña</string>
+    <string name="Etext2">Ingrese su Contraseña</string>
+    <string name="check">Ver Contraseña</string>
+    <string name="text3">Olvido su Contraseña</string>
+    <string name="boton1">Aceptar Politica</string>
+    <string name="boton2">Ingresar</string>
+    <string name="nombre">Nombre</string>
+    <string name="Apellido">Apellido</string>
+    <string name="Telefono">Telefono</string>
+    <string name="Correo">Correo</string>
+    <string name="Contraseña">Contraseña</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="msj2">datos incorrectos</string>
+</resources>
