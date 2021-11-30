@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
     public final static String DATABASE_NAME = "DB_MARKETPLACE";
     public final static String TABLE_USUARIOS = "USUARIOS";
     public final static String TABLE_COMPRAS = "COMPRAS";
+    public final static String TABLE_SESION = "SESION";
     public final static String COL1_1 = "ID";
     public final static String COL2_1 = "NOMBRE";
     public final static String COL3_1 = "APELLIDO";
@@ -22,6 +23,9 @@ import androidx.annotation.Nullable;
     public final static String COL2_2 = "USUARIO";
     public final static String COL3_2 = "ARTICULO";
     public final static String COL4_2 = "CANTIDAD";
+    public final static String COL1_3 = "ID";
+    public final static String COL2_3 = "USUARIO";
+    public final static String COL3_3 = "SESION";
 
     public GestorDB(@Nullable Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -32,6 +36,7 @@ import androidx.annotation.Nullable;
 
         db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE_USUARIOS+ "(ID INTEGER PRIMARY KEY AUTOINCREMENT,NOMBRE TEXT, APELLIDO TEXT,TELEFONO INTEGER, USUARIO TEXT, CONTRASEÑA TEXT)");
         db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE_COMPRAS+ "(ID INTEGER PRIMARY KEY AUTOINCREMENT,USUARIO TEXT, ARTICULO TEXT,CANTIDAD INTEGER)");
+        db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE_SESION+ "(ID INTEGER PRIMARY KEY AUTOINCREMENT,USUARIO TEXT, SESION TEXT)");
 
     }
 
@@ -39,6 +44,7 @@ import androidx.annotation.Nullable;
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USUARIOS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_COMPRAS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_SESION);
         onCreate(db);
 
     }
@@ -72,6 +78,31 @@ import androidx.annotation.Nullable;
         Cursor cursor = db.rawQuery("SELECT *FROM "+ TABLE_USUARIOS+"WHERE USUARIO='"+usuario+"'",null);
         return cursor;
     }
+
+    public Cursor getDataUsuario(String usuario)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        Cursor cursor=db.rawQuery("SELECT *FROM "+TABLE_USUARIOS+" WHERE USUARIO='"+usuario+"'",null);
+        return cursor;
+    }
+
+    public boolean insertSesion(String usuario, String sesion)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues cv=new ContentValues();
+        cv.put(COL2_3,usuario);
+        cv.put(COL3_3,sesion);
+        long resultado =db.insert(TABLE_SESION,null,cv);
+        if (resultado==-1)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
+        }
     /*
     public boolean upDateData(String id, String nombre, String apellido, String telefono)
     {

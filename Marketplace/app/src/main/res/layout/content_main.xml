@@ -27,7 +27,7 @@
         app:layout_constraintVertical_bias="0.365"></TextView>
 
     <EditText
-        android:id="@+id/e1"
+        android:id="@+id/e1login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Etext1"
@@ -56,7 +56,7 @@
         app:layout_constraintVertical_bias="0.512"></TextView>
 
     <EditText
-        android:id="@+id/e2"
+        android:id="@+id/e2login"
         android:layout_width="204dp"
         android:layout_height="44dp"
         android:text="@string/Etext2"
@@ -85,7 +85,7 @@
         app:layout_constraintVertical_bias="0.74"></TextView>
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/checklogin"
         android:layout_width="137dp"
         android:layout_height="42dp"
         android:text="@string/check"
@@ -142,7 +142,8 @@
         app:layout_constraintHorizontal_bias="0.446"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.915" />
+        app:layout_constraintVertical_bias="0.915"
+        android:onClick="metodoIngresar"/>
 
     <LinearLayout
         android:id="@+id/linearLayout"

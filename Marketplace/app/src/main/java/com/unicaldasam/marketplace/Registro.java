@@ -41,10 +41,12 @@ public class Registro extends AppCompatActivity {
         nombre=E1.getText().toString();
         apellido=E2.getText().toString();
         telefono=E3.getText().toString();
+        correo=E4.getText().toString();
         v1=nombre.matches("[A-Z].*");
         v2=apellido.matches("[A-Z].*");
         v3=telefono.matches("[1-9].*");
-        if (v1!=true ||v2!=true||v3!=true)
+        v4=correo.matches("[A-Z].*");
+        if (v1!=true ||v2!=true||v3!=true||v4!=true)
         {
             T6.setText(R.string.msj2);
             Toast toast=Toast.makeText(this,"",Toast.LENGTH_LONG);
